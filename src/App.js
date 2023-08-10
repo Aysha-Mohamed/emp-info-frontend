@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import HomePage from './components/home.component';
 
 const App = () => {
+  const [employees, setEmployees] = useState([]);
+
+
   const fetchData = async () => {
     try {
-      const response = await fetch('https://emp-info-backend-e6552a22461b.herokuapp.com/api/employees');
+      const response = await fetch('http://localhost:3010/api/employees');
       const data = await response.json();
-      console.log('API Response:', data);
+      setEmployees(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -15,10 +19,9 @@ const App = () => {
     fetchData();
   }, []);
 
+
   return (
-    <div className="App">
-      <h1>Fetching Data from Backend</h1>
-    </div>
+    <HomePage employees={employees} />
   );
 };
 
