@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import Search from "../search/search.component";
-import SearchByOffice from "../search/searchbyoffice.component";
+import SearchByName from "../../components/search/searchbyname.component";
+import SearchByOffice from "../../components/search/searchbyoffice.component";
+import { Link } from "react-router-dom";
+
 
 const HomePage = ({employees,setEmployees,data}) =>{
 
-
-   //const employees = props.employees;
-
-    
  
 
     const [currentPage, setCurrentPage] = useState(0);
@@ -18,9 +16,7 @@ const HomePage = ({employees,setEmployees,data}) =>{
     const itemsPerPage = 10;
     const startItemIndex = currentPage * itemsPerPage;
     const endItemIndex = startItemIndex + itemsPerPage;
-    console.log("cuuuu",currentPage);
-    console.log("startItemIndex",startItemIndex);
-    console.log("endItemIndex",endItemIndex);
+
     
     const [employeesToShow,setEmployeesToShow] = useState([]);
 
@@ -29,8 +25,6 @@ const HomePage = ({employees,setEmployees,data}) =>{
     }, [employees, startItemIndex, endItemIndex]);
 
 
-    //useEffect(()=>{setEmployeesToShow(employees.slice(startItemIndex,endItemIndex));},[])
-    //setEmployeesToShow(employees.slice(startItemIndex,endItemIndex));
 
   
 
@@ -40,17 +34,22 @@ const HomePage = ({employees,setEmployees,data}) =>{
 
   }
 
-
-  
+ 
 
     return(
         <div className="App">
         <SearchByOffice employeesToShow={employeesToShow} setEmployeesToShow={setEmployeesToShow} data={data} employees={employees} setCurrentPage={setCurrentPage} setEmployees={setEmployees}/> 
+        <SearchByName employeesToShow={employeesToShow} setEmployeesToShow={setEmployeesToShow} data={data} employees={employees} setCurrentPage={setCurrentPage} setEmployees={setEmployees}/>
         <ul>
-          {employeesToShow.map((employee, index) => (
+          {employeesToShow.map((employee, index) => ( 
             <li key={index}>
+              <Link to={'/details'} state = {{ employee }}>
               Name: {employee.name}, Email: {employee.email}
+              </Link>
+             
             </li>
+           
+            
           ))}
         </ul>
          <ReactPaginate
