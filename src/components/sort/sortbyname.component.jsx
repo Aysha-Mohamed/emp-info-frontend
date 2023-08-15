@@ -8,7 +8,7 @@ const SortByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage
 
     const employeesToSort = employees;
     useEffect(()=>{
-        console.log("refresh sort");
+        // console.log("refresh sort");
         setSort(false);
     },[employeesToShow])
    
@@ -19,7 +19,7 @@ const SortByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage
         employeesToSort.sort((a, b) => a.name.localeCompare(b.name)) :
         employeesToSort.sort((a, b) => b.name.localeCompare(a.name));
 
-        console.log("empsafter",employeesToSort);
+        // console.log("empsafter",employeesToSort);
         setEmployeesToShow(employeesToSort);
         setEmployees(employees);
         setSort(true);

@@ -13,7 +13,7 @@ const EmployeeDetails = () => {
   const selectedEmployee = location.state.employee;
   const mainText = selectedEmployee.mainText;
 
-  console.log(selectedEmployee);
+  // console.log(selectedEmployee);
   return (
     <div className="employee-details-wrapper">
       <PageTitle pageTitle={selectedEmployee.name} />
