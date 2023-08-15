@@ -25,7 +25,7 @@ const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPa
                 
                 else{
                 //    employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().indexOf(event.target.value) !== -1);
-                    employees = initialEmployeeList.filter((employee) => employee.name.indexOf(event.target.value) !== -1);
+                employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().includes(event.target.value.toLowerCase()));
 
                     setEmployeesToShow(employees);
                     setEmployees(employees);
