@@ -53,7 +53,7 @@ const HomePage = ({ employees, setEmployees, data }) => {
           setEmployees={setEmployees}
         />
       </section>
-{/* 
+
       <section className="sort-section">
         
         
@@ -69,7 +69,7 @@ const HomePage = ({ employees, setEmployees, data }) => {
         />
 
 
-      </section> */}
+      </section>
 
       <EmployeesList employeesToShow={employeesToShow} />
       <ReactPaginate
