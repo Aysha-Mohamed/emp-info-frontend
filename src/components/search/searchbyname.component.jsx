@@ -23,12 +23,15 @@ const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPa
                     return;
                 }
                 
-                employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().indexOf(event.target.value) !== -1);
-                console.log("employees",employees);
-               
-                setEmployeesToShow(employees);
-                setEmployees(employees);
-                setCurrentPage(0);
+                else{
+                    employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().indexOf(event.target.value) !== -1);
+                    console.log("employees",employees);
+                   
+                    setEmployeesToShow(employees);
+                    setEmployees(employees);
+                    setCurrentPage(0);
+                }
+                
                 
             }
     
