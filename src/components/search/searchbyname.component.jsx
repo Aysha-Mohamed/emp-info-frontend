@@ -11,6 +11,7 @@ const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPa
            // const employeesCaseSensitive = initialEmployeeList.map((emp)=>({...emp,name:emp.name.toLowerCase()}));
         //    const employeesWithOffice = initialEmployeeList.filter((employee)=>employee.office !== null);
             const handleNameSearch = (event) =>{
+                alert(event.target.value);
                 setSearchName(event.target.value);
               
                 setEmployees(initialEmployeeList);
