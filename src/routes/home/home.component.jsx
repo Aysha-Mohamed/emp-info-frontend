@@ -2,69 +2,89 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import SearchByName from "../../components/search/searchbyname.component";
 import SearchByOffice from "../../components/search/searchbyoffice.component";
-import { Link } from "react-router-dom";
+import EmployeesList from "../../components/employees-list/employees-list.component";
+import "./home.component.scss";
+import PageTitle from "../../components/page-title/page-title.component";
+
+import {
+  BsFillArrowLeftSquareFill,
+  BsFillArrowRightSquareFill,
+} from "react-icons/bs";
+import SortByName from "../../components/sort/sortbyname.component";
+
+const HomePage = ({ employees, setEmployees, data }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const itemsPerPage = 10;
+  const startItemIndex = currentPage * itemsPerPage;
+  const endItemIndex = startItemIndex + itemsPerPage;
+
+  const [employeesToShow, setEmployeesToShow] = useState([]);
+
+  const [sort,setSort] = useState(false);
 
 
-const HomePage = ({employees,setEmployees,data}) =>{
+  useEffect(() => {
+    setEmployeesToShow(employees.slice(startItemIndex, endItemIndex));
+  }, [employees, startItemIndex, endItemIndex,sort]);
 
- 
+  const pageChangeHandler = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
-    const [currentPage, setCurrentPage] = useState(0);
+  return (
+    <div className="App">
+      <PageTitle />
+      <section className="search-section">
+        <SearchByOffice
+          employeesToShow={employeesToShow}
+          setEmployeesToShow={setEmployeesToShow}
+          data={data}
+          employees={employees}
+          setCurrentPage={setCurrentPage}
+          setEmployees={setEmployees}
+        />
+        <SearchByName
+          employeesToShow={employeesToShow}
+          setEmployeesToShow={setEmployeesToShow}
+          data={data}
+          employees={employees}
+          setCurrentPage={setCurrentPage}
+          setEmployees={setEmployees}
+        />
+      </section>
 
-   
+      <section className="sort-section">
+        
+        
+        <SortByName 
+        employeesToShow={employeesToShow}
+        setEmployeesToShow={setEmployeesToShow}
+        data={data}
+        employees={employees}
+        setCurrentPage={setCurrentPage}
+        setEmployees={setEmployees}
+        sort={sort}
+        setSort={setSort}
+        />
 
-    const itemsPerPage = 10;
-    const startItemIndex = currentPage * itemsPerPage;
-    const endItemIndex = startItemIndex + itemsPerPage;
 
-    
-    const [employeesToShow,setEmployeesToShow] = useState([]);
+      </section>
 
-    useEffect(() => {
-      setEmployeesToShow(employees.slice(startItemIndex, endItemIndex));
-    }, [employees, startItemIndex, endItemIndex]);
-
-
-
-  
-
-    const pageChangeHandler = ({ selected }) =>{
-      console.log("selected",selected);
-      setCurrentPage(selected);
-
-  }
-
- 
-
-    return(
-        <div className="App">
-        <SearchByOffice employeesToShow={employeesToShow} setEmployeesToShow={setEmployeesToShow} data={data} employees={employees} setCurrentPage={setCurrentPage} setEmployees={setEmployees}/> 
-        <SearchByName employeesToShow={employeesToShow} setEmployeesToShow={setEmployeesToShow} data={data} employees={employees} setCurrentPage={setCurrentPage} setEmployees={setEmployees}/>
-        <ul>
-          {employeesToShow.map((employee, index) => ( 
-            <li key={index}>
-              <Link to={'/details'} state = {{ employee }}>
-              Name: {employee.name}, Email: {employee.email}
-              </Link>
-             
-            </li>
-           
-            
-          ))}
-        </ul>
-         <ReactPaginate
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
-          breakLabel={'...'}
-          pageCount={Math.ceil(employees.length / itemsPerPage)}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={pageChangeHandler}
-          containerClassName={'pagination'}
-          activeClassName={'active'}
-        /> 
-        </div>
-    )
-}
+      <EmployeesList employeesToShow={employeesToShow} />
+      <ReactPaginate
+        previousLabel={<BsFillArrowLeftSquareFill />}
+        nextLabel={<BsFillArrowRightSquareFill />}
+        breakLabel={"..."}
+        pageCount={Math.ceil(employees.length / itemsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={pageChangeHandler}
+        containerClassName={"pagination"}
+        activeClassName={"active"}
+      />
+    </div>
+  );
+};
 
 export default HomePage;

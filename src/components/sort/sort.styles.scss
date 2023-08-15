@@ -1,0 +1,14 @@
+@import  "../../components/employees-list/employees-list.styles.scss";
+
+.sort-section{
+    text-align: right;
+    margin-right: 3%;
+    margin-top: 10px;
+}
+
+@media(max-width: $layout-breakpoint-mobile){
+    .sort-section{
+        text-align: center;
+        margin-right: 0;
+    }
+}

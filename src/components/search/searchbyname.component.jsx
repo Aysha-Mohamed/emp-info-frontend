@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ImSearch } from 'react-icons/im'
+import { ImSearch } from 'react-icons/im';
+import "./search.styles.scss";
 
 const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage,setEmployees,data}) =>{
 
@@ -34,7 +35,7 @@ const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPa
         
             <div>
                 <input placeholder='Search by name or office'  value={searchName} onChange={handleNameSearch}/>
-                <ImSearch />
+                {/* <ImSearch /> */}
             </div>
     
     )

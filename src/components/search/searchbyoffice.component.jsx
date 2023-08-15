@@ -1,3 +1,5 @@
+
+import "./search.styles.scss";
 const SearchByOffice = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage,setEmployees,data}) =>{
     const initialEmployeeList = data;
     const employeesWithOffice = initialEmployeeList.filter((employee)=>employee.office !== null);
@@ -20,7 +22,7 @@ const SearchByOffice = ({employees,employeesToShow,setEmployeesToShow,setCurrent
     }
     
     return(
-        <div>
+        <div className="search-office-wrapper">
             <select onChange={handleOfficeSearch}>
                 <option defaultValue>Search by office</option>
                 <option value="Lund">Lund</option>

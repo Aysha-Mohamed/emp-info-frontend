@@ -1,0 +1,52 @@
+@import "../../components/employees-list/employees-list.styles";
+
+.employee-details-wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 5%;
+
+  .employee-details {
+    display: grid;
+    grid-template-columns: 30% 42%;
+    column-gap: 50px;
+    justify-content: center;
+    margin-top: 6%;
+    font-family: "Acme";
+    line-height: 1.3rem;
+    margin-bottom: 5%;
+    .employee-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+
+    .employee-info {
+      div {
+        width: 100%;
+
+        p {
+          margin-top: 0;
+        }
+      }
+      .social-media-icons a {
+        font-size: 1.7rem;
+    }
+    }
+  }
+}
+
+
+@media(max-width: $layout-breakpoint-mobile){
+  .employee-details-wrapper{
+    .employee-details{
+      grid-template-columns: 1fr;
+      .employee-image-wrapper{
+        img{
+          margin-bottom: 10%;
+        }
+      }
+    }
+  }
+}

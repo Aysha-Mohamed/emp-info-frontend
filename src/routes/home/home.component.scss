@@ -1,0 +1,41 @@
+@import '../../components/employees-list/employees-list.styles';
+
+.pagination{
+    list-style: none;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    background-color: white;
+    padding-bottom: 0;
+    padding: 30px;
+    width: max-content;
+    margin: 0 auto;
+    border: 2px solid black;
+    margin-bottom: 30px;
+    li{
+        float: left;
+        cursor: pointer;
+        color: #1d2e8c;
+        font-weight: 600;
+        font-style: bold;
+        padding: 10px;
+        &.active{
+            border-bottom: 5px solid black;
+        }
+    }
+}
+
+@media (max-width: $layout-breakpoint-mobile) {
+    .pagination{
+        flex-wrap: wrap;
+    padding: 0;
+    max-width: max-content;
+    gap: 0;
+    li{
+        padding: 7px;
+    }
+    }
+    
+}

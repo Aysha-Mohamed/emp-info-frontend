@@ -1,0 +1,16 @@
+@import "../../components/employees-list/employees-list.styles.scss";
+
+.search-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-right: 2%;
+}
+
+@media(max-width:$layout-breakpoint-mobile){
+    .search-section{
+        justify-content: center;
+        margin-right: 0;
+    }
+}

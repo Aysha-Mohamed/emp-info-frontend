@@ -25,13 +25,16 @@ const App = () => {
   }, []);
 
 
+  //refresh page when back button is clicked
+
   useEffect(() => {
     const handlePopstate = () => {
       fetchData();
     };
 
+//popstate is fired when the page history changes
     window.addEventListener('popstate', handlePopstate);
-
+//removing the listener when component is unmounted
     return () => {
       window.removeEventListener('popstate', handlePopstate);
     };
