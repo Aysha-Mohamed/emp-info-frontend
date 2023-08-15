@@ -33,6 +33,24 @@ The Project offers a user-friendly interface for managing employee information. 
 
 5. **`sass`:** Utilizing SASS for styling ensures a structured and maintainable approach to CSS, promoting a clean and organized codebase.
 
+## A list of the stories selected and the reason behind it
+
+1. ** `Screen support for color blindness` :** I made sure the app works well for people who see colors differently. The app uses strong contrasts, like white background with blue-black text, to make things easy to read. When you're picking a page in the pagination, a bar appears under the page you're on. This way, even if you have trouble with colors, you'll know where you are. The goal is to make sure everyone can use the app comfortably, no matter how they see colors.
+
+2. **`Responsive web design`:** The web app works smoothly on big computer screens, small mobile phones, and tablets, so anyone can use it easily. It's like making sure a shirt fits everyone, no matter their size. This way, people can enjoy the app no matter what device they have.
+
+3. **`Use modern CSS throughout the application`:** I chose to use modern CSS techniques like flex and grid, along with a preprocessor called Sass, to make the app's layout and design super flexible,minimalist and organized. These tools help us create a neat and stylish app that's easy to change and looks good on any device.
+
+4. **`Filter by name and office`
+
+5. **`Sort by name either from A to Z or Z to A`
+
+6. **`Enable switch between a grid and a different view`:** It's all about making sure you have the best experience, whether you prefer things neatly organized in a grid or displayed differently for a change.
+
+7. **`Available on a free public url`:**Available on public url so that you can access backend and frontend parts. Heroku was used to handle Api key storage and security.
+
+
+
 
 
 
