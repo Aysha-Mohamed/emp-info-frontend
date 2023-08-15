@@ -5,12 +5,15 @@ import SearchByOffice from "../../components/search/searchbyoffice.component";
 import EmployeesList from "../../components/employees-list/employees-list.component";
 import "./home.component.scss";
 import PageTitle from "../../components/page-title/page-title.component";
+import Logo from "../../components/logo/logo.component";
+
 
 import {
   BsFillArrowLeftSquareFill,
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
 import SortByName from "../../components/sort/sortbyname.component";
+
 
 const HomePage = ({ employees, setEmployees, data }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -35,6 +38,8 @@ const HomePage = ({ employees, setEmployees, data }) => {
   return (
     <div className="App">
       <PageTitle />
+      {/* <Logo />  */}
+
       <section className="search-section">
         <SearchByOffice
           employeesToShow={employeesToShow}
@@ -70,6 +75,8 @@ const HomePage = ({ employees, setEmployees, data }) => {
 
 
       </section>
+
+     
 
       <EmployeesList employeesToShow={employeesToShow} />
       <ReactPaginate

@@ -1,0 +1,27 @@
+@import "../../components/employees-list/employees-list.styles.scss";
+
+.logo-wrapper{
+    position: absolute;
+    width: 10%;
+    left: 3%;
+    top:10%;
+    img{
+        width: 100%;
+    }
+}
+
+@media(max-width:$layout-breakpoint-mobile){
+    .logo-wrapper{
+        left: 9%;
+        top: 3%;
+    }
+}
+
+@media only screen 
+  and (min-device-width: $layout-breakpoint-tablet-min) 
+  and (max-device-width: $layout-breakpoint-tablet-max) 
+  and (-webkit-min-device-pixel-ratio: 2){
+    .logo-wrapper{
+        top: 6%;
+    }
+  }

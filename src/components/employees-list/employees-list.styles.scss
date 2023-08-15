@@ -1,4 +1,6 @@
 $layout-breakpoint-mobile: 600px;
+$layout-breakpoint-tablet-min:786px;
+$layout-breakpoint-tablet-max:1024px;
 
 
 .employees-list-wrapper {
@@ -62,3 +64,13 @@ $layout-breakpoint-mobile: 600px;
   
   
 }
+
+
+@media only screen 
+  and (min-device-width: $layout-breakpoint-tablet-min) 
+  and (max-device-width: $layout-breakpoint-tablet-max) 
+  and (-webkit-min-device-pixel-ratio: 2){
+    .employees-list-wrapper{
+      gap: 30px;
+    }
+  }

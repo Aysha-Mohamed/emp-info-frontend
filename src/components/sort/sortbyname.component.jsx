@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./sort.styles.scss";
 
 const SortByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage,setEmployees,data,sort,setSort}) =>{
@@ -6,9 +7,13 @@ const SortByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPage
 
 
     const employeesToSort = employees;
-    setSort(false);
+    useEffect(()=>{
+        console.log("refresh sort");
+        setSort(false);
+    },[employeesToShow])
+   
     const handleSort = (event) =>{
-        console.log("emps",employeesToSort)
+        console.log("emps",employeesToSort);
        
         event.target.value === "nameAtoZ" || event.target.value === "Sort"? 
         employeesToSort.sort((a, b) => a.name.localeCompare(b.name)) :

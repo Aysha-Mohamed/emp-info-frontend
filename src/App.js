@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HomePage from './routes/home/home.component';
 import { Routes,Route } from 'react-router-dom';
 import EmployeeDetails from './routes/employee-details/employee-details.component';
+import Logo from './components/logo/logo.component';
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
@@ -43,8 +44,13 @@ const App = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<Logo />}>
       <Route index element={<HomePage employees={employees} setEmployees={setEmployees} data={data}/>}/>
       <Route path="/details" element={<EmployeeDetails />}/>
+      </Route>
+      
+   
+      
     </Routes>
     
   
