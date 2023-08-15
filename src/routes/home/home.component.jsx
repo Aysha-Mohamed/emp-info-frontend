@@ -13,11 +13,17 @@ import {
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
 import SortByName from "../../components/sort/sortbyname.component";
+import LayoutChange from "../../components/layout-change/layout-change.component";
 
 
 const HomePage = ({ employees, setEmployees, data }) => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [isGridRow, setIsGridRow] = useState(false);
 
+ useEffect(()=>{
+  setIsGridRow(isGridRow)
+ },[isGridRow]);
+console.log("isgr",isGridRow);
   const itemsPerPage = 10;
   const startItemIndex = currentPage * itemsPerPage;
   const endItemIndex = startItemIndex + itemsPerPage;
@@ -34,6 +40,8 @@ const HomePage = ({ employees, setEmployees, data }) => {
   const pageChangeHandler = ({ selected }) => {
     setCurrentPage(selected);
   };
+
+ 
 
   return (
     <div className="App">
@@ -60,7 +68,7 @@ const HomePage = ({ employees, setEmployees, data }) => {
       </section>
 
       <section className="sort-section">
-        
+        <LayoutChange isGridRow={isGridRow} setIsGridRow={setIsGridRow}/>
         
         <SortByName 
         employeesToShow={employeesToShow}
@@ -77,8 +85,9 @@ const HomePage = ({ employees, setEmployees, data }) => {
       </section>
 
      
+     
 
-      <EmployeesList employeesToShow={employeesToShow} />
+      <EmployeesList employeesToShow={employeesToShow} isGridRow={isGridRow}/>
       <ReactPaginate
         previousLabel={<BsFillArrowLeftSquareFill />}
         nextLabel={<BsFillArrowRightSquareFill />}

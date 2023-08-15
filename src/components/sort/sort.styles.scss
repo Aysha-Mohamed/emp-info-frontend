@@ -4,11 +4,20 @@
     text-align: right;
     margin-right: 3%;
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 30px;
+    .layout-change{
+        font-size: 1.5rem;
+    }
+
 }
 
 @media(max-width: $layout-breakpoint-mobile){
     .sort-section{
         text-align: center;
         margin-right: 0;
+        justify-content: center;
     }
 }

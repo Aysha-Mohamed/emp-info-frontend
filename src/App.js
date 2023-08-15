@@ -12,8 +12,9 @@ const App = () => {
   const fetchData = async () => {
     console.log("refresh")
     try {
-      //const response = await fetch('http://localhost:3010/api/employees');
-      const response = await fetch('https://emp-info-backend-e6552a22461b.herokuapp.com/api/employees');
+      
+    //  const response = await fetch('http://localhost:3010/api/employees');
+     const response = await fetch('https://emp-info-backend-e6552a22461b.herokuapp.com/api/employees');
       const data = await response.json();
       setData(data);
       setEmployees(data);

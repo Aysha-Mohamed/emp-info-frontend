@@ -52,7 +52,25 @@ $layout-breakpoint-tablet-max:1024px;
       margin-bottom: 0;
     }
   }
+
+  &.grid-rows-layout{
+    flex-direction: column;
+    .employee-item{
+      width: 80%;
+      display: unset;
+      margin: 0 auto;
+      a{
+        display: grid;
+    grid-template-columns: 40% 1fr;
+    align-items: center;
+
+      }
+    }
+  }
 }
+
+
+
 
 
 @media (max-width: $layout-breakpoint-mobile) {
