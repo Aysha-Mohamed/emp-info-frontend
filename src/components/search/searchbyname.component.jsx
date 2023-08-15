@@ -24,9 +24,9 @@ const SearchByName = ({employees,employeesToShow,setEmployeesToShow,setCurrentPa
                 }
                 
                 else{
-                    employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().indexOf(event.target.value) !== -1);
-                    console.log("employees",employees);
-                   
+                //    employees = initialEmployeeList.filter((employee) => employee.name.toLowerCase().indexOf(event.target.value) !== -1);
+                    employees = initialEmployeeList.filter((employee) => employee.name.indexOf(event.target.value) !== -1);
+
                     setEmployeesToShow(employees);
                     setEmployees(employees);
                     setCurrentPage(0);
