@@ -23,7 +23,6 @@ const HomePage = ({ employees, setEmployees, data }) => {
  useEffect(()=>{
   setIsGridRow(isGridRow)
  },[isGridRow]);
-console.log("isgr",isGridRow);
   const itemsPerPage = 10;
   const startItemIndex = currentPage * itemsPerPage;
   const endItemIndex = startItemIndex + itemsPerPage;

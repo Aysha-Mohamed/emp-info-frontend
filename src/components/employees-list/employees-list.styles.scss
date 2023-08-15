@@ -76,7 +76,18 @@ $layout-breakpoint-tablet-max:1024px;
 @media (max-width: $layout-breakpoint-mobile) {
   .employees-list-wrapper{
     .employee-item{
-      width: 100% ;
+      width: 100% !important;
+      .employee-item-text{
+        padding-top: 10px;
+      padding-bottom: 10px;
+         margin-right: 5px;
+    .emp-name{
+      margin-top:0;
+    }
+    .emp-office{
+      margin-bottom:0;
+    }
+      }
     }
   }
   
